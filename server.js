@@ -1,6 +1,8 @@
 // server.js
 // where your node app starts
 
+// https://www.freecodecamp.org/news/create-a-professional-node-express/
+
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
