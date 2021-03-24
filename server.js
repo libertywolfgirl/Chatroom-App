@@ -3,12 +3,12 @@
 
 // https://www.freecodecamp.org/news/create-a-professional-node-express/
 
-//import http from "http";
-//import logger from "morgan";
-//import cors from "cors";
+const http = require("http");
+const logger = require("morgan");
+const cors = require("cors");
 // routes
-import indexRouter from "./routes/index.js";
-import userRouter from "./routes/user.js";
+const indexRouter = require("./routes/index.js");
+const userRouter = require("./routes/user.js");
 import chatRoomRouter from "./routes/chatRoom.js";
 import deleteRouter from "./routes/delete.js";
 // middlewares
