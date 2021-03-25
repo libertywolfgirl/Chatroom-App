@@ -9,10 +9,10 @@ const cors = require("cors");
 // routes
 const indexRouter = require("./routes/index.js");
 const userRouter = require("./routes/user.js");
-import chatRoomRouter from "./routes/chatRoom.js";
-import deleteRouter from "./routes/delete.js";
+const chatRoomRouter = require("./routes/chatRoom.js");
+const deleteRouter = require("./routes/delete.js");
 // middlewares
-import { decode } from "./middlewares/jwt.js";
+const { decode } = require("./middlewares/jwt.js");
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
