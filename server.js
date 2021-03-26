@@ -19,6 +19,9 @@ const { decode } = require("./middlewares/jwt.js");
 const express = require("express");
 const app = express();
 
+// mongo connection
+const db = require("./config/mongo.js");
+
 /** Get port from environment and store in Express. */
 const port = process.env.PORT || "3000";
 app.set("port", port);
@@ -29,7 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/", indexRouter);
 app.use("/users", userRouter);
-app.use("/room", decode, chatRoomRouter);
+//app.use("/room", decode, chatRoomRouter);
 app.use("/delete", deleteRouter);
 
 /** catch 404 and forward to error handler */

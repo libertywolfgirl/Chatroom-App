@@ -1,6 +1,6 @@
 const config = {
   db: {
-    url: 'localhost:27017',
+    url: 'user:qHyvbVlI21xrcSox@cluster0.y9mxw.mongodb.net',
     name: 'chatdb'
   }
 }
@@ -8,3 +8,5 @@ const config = {
 module.exports = config;
 
 //qHyvbVlI21xrcSox
+//mongodb+srv://user:qHyvbVlI21xrcSox@cluster0.y9mxw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
