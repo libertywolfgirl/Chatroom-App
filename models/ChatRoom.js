@@ -57,4 +57,4 @@ chatRoomSchema.statics.initiateChat = async function (
   }
 }
 
-export default mongoose.model("ChatRoom", chatRoomSchema);
+module.exports = mongoose.model("ChatRoom", chatRoomSchema);
