@@ -6,7 +6,7 @@
 const http = require("http");
 const logger = require("morgan");
 const cors = require("cors");
-const socketio = require('socket.io');
+const socketio = require('socket.io')(http);
 // routes
 const indexRouter = require("./routes/index.js");
 const userRouter = require("./routes/user.js");
@@ -43,7 +43,7 @@ app.use("/delete", deleteRouter);
 app.use("*", (req, res) => {
   return res.status(404).json({
     success: false,
-    message: "API endpoint doesnt exist"
+    message: "API endpoint doesn't exist"
   });
 });
 
