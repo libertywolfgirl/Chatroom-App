@@ -6,6 +6,7 @@
 const http = require("http");
 const logger = require("morgan");
 const cors = require("cors");
+const socketio = require('socket.io');
 // routes
 const indexRouter = require("./routes/index.js");
 const userRouter = require("./routes/user.js");
@@ -21,6 +22,9 @@ const app = express();
 
 // mongo connection
 const db = require("./config/mongo.js");
+
+// socket configuration
+const WebSockets = require("./utils/WebSockets.js");
 
 /** Get port from environment and store in Express. */
 const port = process.env.PORT || "3000";
@@ -73,6 +77,9 @@ const listener = app.listen(process.env.PORT, () => {
 
 /** Create HTTP server. */
 const server = http.createServer(app);
+/** Create socket connection */
+global.io = socketio.listen(server);
+global.io.on('connection', WebSockets.connection)
 /** Listen on provided port, on all network interfaces. */
 server.listen(port);
 /** Event listener for HTTP server "listening" event. */
