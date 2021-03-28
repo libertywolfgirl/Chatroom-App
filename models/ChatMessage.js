@@ -107,4 +107,30 @@ chatMessageSchema.statics.createPostInChatRoom = async function (chatRoomId, mes
   }
 }
 
+chatMessageSchema.statics.getConversationByRoomId = async function (chatRoomId, options = {}) {
+  try {
+    return this.aggregate([
+      { $match: { chatRoomId } },
+      { $sort: { createdAt: -1 } },
+      // do a join on another table called users, and 
+      // get me a user whose _id = postedByUser
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'postedByUser',
+          foreignField: '_id',
+          as: 'postedByUser',
+        }
+      },
+      { $unwind: "$postedByUser" },
+      // apply pagination
+      { $skip: options.page * options.limit },
+      { $limit: options.limit },
+      { $sort: { createdAt: 1 } },
+    ]);
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = mongoose.model("ChatMessage", chatMessageSchema);
