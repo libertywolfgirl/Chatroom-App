@@ -1,3 +1,4 @@
+// models
 const ChatRoomModel = require("../models/ChatRoom.js");
 const ChatMessageModel = require("../models/ChatMessage.js");
 
